@@ -15,6 +15,8 @@ service: hello-world-python # NOTE: update this with your service name
 tenant: jdswalker
 app: hello-world-python
 
+
+
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
@@ -25,6 +27,10 @@ provider:
   region: ap-southeast-2
   memorySize: 512
   timeout: 10
+  environment:
+    FIRST_NAME: John
+
+
 
 # you can overwrite defaults here
 #  stage: dev
@@ -60,12 +66,13 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello-short-timeout:
+  hello-john:
     handler: handler.hello
-    timeout: 3
-    memorySize: 128
-  hello-long-timeout:
+  hello-mark:
     handler: handler.hello
+    environment:
+      FIRST_NAME: Mark
+
 
 
 #    The following are a few example events you can configure
